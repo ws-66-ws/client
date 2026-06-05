@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/close_24.svg</file>
+        <file>resource/max_24.svg</file>
+        <file>resource/minimize_24.svg</file>
+        <file>resource/nav_contact_active_24.svg</file>
+        <file>resource/nav_contact_normal_24.svg</file>
+        <file>resource/nav_message_active_24.svg</file>
+        <file>resource/nav_message_normal_24.svg</file>
+        <file>resource/add_24.svg</file>
+        <file>resource/search_24.svg</file>
+        <file>resource/close_circle_24.svg</file>
+        <file>resource/head/head1.png</file>
+        <file>resource/head/head2.png</file>
+        <file>resource/edit_24.svg</file>
+        <file>resource/female_16.svg</file>
+        <file>resource/male_16.svg</file>
+        <file>resource/folder_24.svg</file>
+        <file>resource/image_24.svg</file>
+        <file>resource/microphone_off_24.svg</file>
+        <file>resource/microphone_on_24.svg</file>
+        <file>resource/screenshot_24.svg</file>
+        <file>resource/expression_24.svg</file>
+        <file>resource/dialog_history_24.svg</file>
+    </qresource>
+</RCC>

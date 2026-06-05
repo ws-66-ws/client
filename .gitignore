@@ -1,0 +1,5 @@
+clientchat/build/
+*.pdb
+*.exe
+*.obj
+*.user

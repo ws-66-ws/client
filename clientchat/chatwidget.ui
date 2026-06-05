@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ChatWidget</class>
+ <widget class="QWidget" name="ChatWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #1e1e1e;</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>5</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>5</number>
+   </property>
+   <property name="bottomMargin">
+    <number>5</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="titleBar" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #2c2c2c; border-bottom: 1px solid #333;</string>
+     </property>
+     <layout class="QHBoxLayout" name="titleBarLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>35</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>35</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>💬</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>15</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="avatar_Label">
+        <property name="minimumSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 16px; background-color: #555; </string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="titleSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="min_Button">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QToolButton { background: transparent; color: #aaa; border: none; } QToolButton:hover { background-color: #3E3E3E;border-radius: 6px; }</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resource.qrc">
+          <normaloff>:/resource/minimize_24.svg</normaloff>:/resource/minimize_24.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="max_Button">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QToolButton { background: transparent;color: #aaa; border: none; } QToolButton:hover { background-color: #3E3E3E;border-radius: 6px; }</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resource.qrc">
+          <normaloff>:/resource/max_24.svg</normaloff>:/resource/max_24.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="close_Button">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QToolButton {
+    background-color: transparent;
+    color: #CCCCCC;
+    border: none;
+}
+QToolButton:hover {
+    background-color: #C42B1C; 
+    color: white;
+	border-radius: 6px;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resource.qrc">
+          <normaloff>:/resource/close_24.svg</normaloff>:/resource/close_24.svg</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>20</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="widget" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QToolButton" name="message_Button">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QToolButton { background: transparent; color: #aaa; border: none; } QToolButton:hover { background-color: #3E3E3E; border-radius: 10px;}</string>
+            </property>
+            <property name="text">
+             <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/resource/nav_message_active_24.svg</normaloff>:/resource/nav_message_active_24.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="contact_Button">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QToolButton { background: transparent; color: #aaa; border: none; } QToolButton:hover { background-color: #3E3E3E; border-radius: 10px;}</string>
+            </property>
+            <property name="text">
+             <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/resource/nav_contact_normal_24.svg</normaloff>:/resource/nav_contact_normal_24.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QSplitter" name="mainSplitter">
+       <property name="styleSheet">
+        <string notr="true">QSplitter::handle { background-color: #333; width: 1px; }</string>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="childrenCollapsible">
+        <bool>false</bool>
+       </property>
+       <widget class="QWidget" name="leftPanel" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>280</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>320</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #252525;</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QWidget" name="widget_2" native="true">
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="leftMargin">
+             <number>15</number>
+            </property>
+            <property name="topMargin">
+             <number>15</number>
+            </property>
+            <property name="rightMargin">
+             <number>15</number>
+            </property>
+            <property name="bottomMargin">
+             <number>15</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="searchLayout">
+              <item>
+               <widget class="QLineEdit" name="search_Edit">
+                <property name="minimumSize">
+                 <size>
+                  <width>35</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>-1</pointsize>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LayoutDirection::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit { background-color: #333; border: none; border-radius: 8px; color: white; font-size: 14px; } QLineEdit:focus { border: 1px solid #1976d2; }</string>
+                </property>
+                <property name="maxLength">
+                 <number>30</number>
+                </property>
+                <property name="placeholderText">
+                 <string>搜索</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="addContact_Btn">
+                <property name="minimumSize">
+                 <size>
+                  <width>35</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>16</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QToolButton { background-color: #333; border: none; border-radius: 8px; color: #aaa; } QToolButton:hover { background-color: #444; color: white; }</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="resource.qrc">
+                  <normaloff>:/resource/add_24.svg</normaloff>:/resource/add_24.svg</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QStackedWidget" name="stackedWidget">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="chatUserPage">
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QListWidget" name="chatUser_List">
+               <property name="styleSheet">
+                <string notr="true">QListWidget { background-color: transparent; border: none; outline: none; } 
+QListWidget::item { margin-top: 2px; margin-bottom: 2px;} 
+QListWidget::item:selected { background-color: #333; } 
+QListWidget::item:hover { background-color:#2e2e2e; }
+/* 垂直滚动条整体样式 */
+QListWidget QScrollBar:vertical {
+    border: none;              /* 去掉边框 */
+    background: transparent;   /* 背景透明 */
+    width: 8px;                /* 滚动条宽度（细一些） */
+    margin: 0px 0px 0px 0px;   /* 与边缘的距离 */
+}
+
+/* 滚动条滑块（拖动的那个条） */
+QListWidget QScrollBar::handle:vertical {
+    background: rgba(100, 100, 100, 150); /* 深灰半透明 */
+    min-height: 30px;           /* 滑块最小高度 */
+    border-radius: 4px;         /* 圆角 */
+}
+
+/* 鼠标悬浮在滑块上时变亮 */
+QListWidget QScrollBar::handle:vertical:hover {
+    background: rgba(120, 120, 120, 200);
+}
+
+/* 隐藏上下两端的箭头按钮 */
+QListWidget QScrollBar::add-line:vertical {
+    height: 0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QListWidget QScrollBar::sub-line:vertical {
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+/* 隐藏滑块上下方的灰色背景（保持纯净，不显示） */
+QListWidget QScrollBar::add-page:vertical, QListWidget QScrollBar::sub-page:vertical {
+    background: none;
+}</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="contactPage">
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QWidget" name="widget_3" native="true">
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QLabel" name="contact_Label">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>联系人</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QListWidget" name="contact_List">
+               <property name="styleSheet">
+                <string notr="true">QListWidget { background-color: transparent; border: none; outline: none; } 
+QListWidget::item { margin-top: 2px; margin-bottom: 2px;} 
+QListWidget::item:selected { background-color: #333; } 
+QListWidget::item:hover { background-color:#2e2e2e; }
+/* 垂直滚动条整体样式 */
+QListWidget QScrollBar:vertical {
+    border: none;              /* 去掉边框 */
+    background: transparent;   /* 背景透明 */
+    width: 8px;                /* 滚动条宽度（细一些） */
+    margin: 0px 0px 0px 0px;   /* 与边缘的距离 */
+}
+
+/* 滚动条滑块（拖动的那个条） */
+QListWidget QScrollBar::handle:vertical {
+    background: rgba(100, 100, 100, 150); /* 深灰半透明 */
+    min-height: 30px;           /* 滑块最小高度 */
+    border-radius: 4px;         /* 圆角 */
+}
+
+/* 鼠标悬浮在滑块上时变亮 */
+QListWidget QScrollBar::handle:vertical:hover {
+    background: rgba(120, 120, 120, 200);
+}
+
+/* 隐藏上下两端的箭头按钮 */
+QListWidget QScrollBar::add-line:vertical {
+    height: 0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QListWidget QScrollBar::sub-line:vertical {
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+/* 隐藏滑块上下方的灰色背景（保持纯净，不显示） */
+QListWidget QScrollBar::add-page:vertical, QListWidget QScrollBar::sub-page:vertical {
+    background: none;
+}</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="rightPanel" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: #1e1e1e;</string>
+        </property>
+        <layout class="QVBoxLayout" name="rightLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QStackedWidget" name="stackedContent">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="defaultPage">
+            <layout class="QVBoxLayout" name="defaultLayout">
+             <property name="spacing">
+              <number>16</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <spacer name="verticalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="defaultIconLabel">
+               <property name="styleSheet">
+                <string notr="true">font-size: 72px; color: #444;</string>
+               </property>
+               <property name="text">
+                <string>💬</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="defaultTitleLabel">
+               <property name="styleSheet">
+                <string notr="true">font-size: 18px; color: #888; font-weight: 500;</string>
+               </property>
+               <property name="text">
+                <string>选择聊天开始对话</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="chatPage">
+            <layout class="QVBoxLayout" name="chatPageLayout">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="currentChat_Label">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>-1</pointsize>
+                 <bold>true</bold>
+                 <kerning>true</kerning>
+                </font>
+               </property>
+               <property name="toolTipDuration">
+                <number>-1</number>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: #2c2c2c; border-bottom: 1px solid #333; color: white; font-size: 16px; font-weight: bold; padding-left: 20px; </string>
+               </property>
+               <property name="text">
+                <string>聊天对象</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QScrollArea" name="scrollArea">
+               <property name="styleSheet">
+                <string notr="true">QScrollArea {background-color: #1e1e1e; border: none; padding: 10px;}
+
+QScrollArea QScrollBar:vertical {
+    border: none;              /* 去掉边框 */
+    background: transparent;   /* 背景透明 */
+    width: 8px;                /* 滚动条宽度（细一些） */
+    margin: 0px 0px 0px 0px;   /* 与边缘的距离 */
+}
+
+QScrollArea QScrollBar::handle:vertical {
+    background: rgba(100, 100, 100, 150);
+    min-height: 30px;
+    border-radius: 4px;
+}
+
+QScrollArea QScrollBar::handle:vertical:hover {
+    background: rgba(120, 120, 120, 200);
+}
+
+QScrollArea QScrollBar::add-line:vertical {
+    height: 0px;
+}
+
+QScrollArea QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollArea QScrollBar::add-page:vertical, QScrollArea QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+QScrollArea QScrollBar:horizontal {
+    height: 0px;
+}</string>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="QWidget" name="chatDisplay">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>590</width>
+                  <height>343</height>
+                 </rect>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_10">
+                 <property name="spacing">
+                  <number>15</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <layout class="QVBoxLayout" name="layout">
+                   <property name="spacing">
+                    <number>15</number>
+                   </property>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="inputArea" native="true">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>240</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>210</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: #2d2d2d; 
+border-top: 1px solid #3e3e3e;</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_9">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QWidget" name="toolbarWidget" native="true">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">border-top: none;</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="toolbarLayout">
+                   <property name="spacing">
+                    <number>8</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QToolButton" name="emoji_Btn">
+                     <property name="minimumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>表情</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QToolButton { background: transparent; color: #aaaaaa; border: none; font-size: 16px; } QToolButton:hover { color: #ffffff; }</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/resource/expression_24.svg</normaloff>:/resource/expression_24.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QToolButton" name="screenshot_Btn">
+                     <property name="minimumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>截图</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QToolButton { background: transparent; color: #aaaaaa; border: none; font-size: 16px; } QToolButton:hover { color: #ffffff; }</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/resource/screenshot_24.svg</normaloff>:/resource/screenshot_24.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QToolButton" name="file_Btn">
+                     <property name="minimumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>发送文件</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QToolButton { background: transparent; color: #aaaaaa; border: none; font-size: 16px; } QToolButton:hover { color: #ffffff; }</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/resource/folder_24.svg</normaloff>:/resource/folder_24.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QToolButton" name="image_Btn">
+                     <property name="minimumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>发送图片</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QToolButton { background: transparent; color: #aaaaaa; border: none; font-size: 16px; } QToolButton:hover { color: #ffffff; }</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/resource/image_24.svg</normaloff>:/resource/image_24.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QToolButton" name="mic_Btn">
+                     <property name="minimumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>麦克风</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QToolButton { background: transparent; color: #aaaaaa; border: none; font-size: 16px; } QToolButton:hover { color: #ffffff; }</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/resource/microphone_on_24.svg</normaloff>:/resource/microphone_on_24.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="toolbarSpacer">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QToolButton" name="history_Btn">
+                     <property name="minimumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>28</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>消息记录</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QToolButton { background: transparent; color: #aaaaaa; border: none; font-size: 16px; } QToolButton:hover { color: #ffffff; }</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/resource/dialog_history_24.svg</normaloff>:/resource/dialog_history_24.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="MessageTextEdit" name="message_Edit">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>110</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>110</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QTextEdit { background: transparent; border: none; color: #ffffff; font-size: 14px; padding: 8px 4px; }
+QTextEdit:focus { border: none; }
+QTextEdit QScrollBar:vertical {
+    border: none;
+    background: transparent;
+    width: 6px;
+    margin: 0px 0px 0px 0px;
+}
+QTextEdit QScrollBar::handle:vertical {
+    background: rgba(100, 100, 100, 120);
+    min-height: 30px;
+    border-radius: 3px;
+}
+QTextEdit QScrollBar::handle:vertical:hover {
+    background: rgba(140, 140, 140, 180);
+}
+QTextEdit QScrollBar::add-line:vertical {
+    height: 0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QTextEdit QScrollBar::sub-line:vertical {
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+QTextEdit QScrollBar::add-page:vertical, QTextEdit QScrollBar::sub-page:vertical {
+    background: none;
+}</string>
+                  </property>
+                  <property name="placeholderText">
+                   <string>输入消息...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <item>
+                   <spacer name="sendBtnSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Orientation::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="send_Button">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>80</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>80</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">/* 普通状态 */
+QPushButton {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* 鼠标悬停状态 */
+QPushButton:hover {
+    background-color: #1565c0;
+}
+
+/* 鼠标按下状态 */
+QPushButton:pressed {
+    background-color: #0d47a1;
+}
+
+/* 【新增】不可用状态 */
+QPushButton:disabled {
+    color: #888888;               /* 文本变淡为浅灰色 */
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>发送</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="contactInfoPage">
+            <property name="styleSheet">
+             <string notr="true">/* 头像 - 设置为圆形 */
+QLabel#icon_Label {
+    min-width: 90px;
+    min-height: 90px;
+    border-radius: 45px;
+    background-color: #555;
+}
+
+/* 昵称 - 大字加粗白色 */
+QLabel#nick_Label {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* QQ号/邮箱 - 浅灰色 */
+QLabel#email_Label {
+    color: #999999;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* 性别/年龄/星座 - 带上边距 */
+QLabel#sex_Label {
+    color: #CCCCCC;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* 签名标签（&quot;签名&quot;两个字） */
+QLabel#qianming_Label {
+    color: #999999;
+    font-size: 12px;
+}
+
+/* 签名的内容 - 亮白色 */
+QLabel#desc_Label {
+    color: #EEEEEE;
+    font-size: 14px;
+}
+
+/* 编辑资料按钮 - 边框透明 */
+QPushButton#bianji_Btn {
+    background-color: transparent;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    color: #CCCCCC;
+    padding: 6px 20px;
+    font-size: 12px;
+}
+QPushButton#bianji_Btn:hover {
+    background-color: #3a3a3a;
+}
+
+/* 发送消息按钮 - 蓝色实心 */
+QPushButton#sendMsg_Btn {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 20px;
+    font-size: 12px;
+}
+QPushButton#sendMsg_Btn:hover {
+    background-color: #1565c0;
+}</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <property name="leftMargin">
+              <number>100</number>
+             </property>
+             <property name="topMargin">
+              <number>100</number>
+             </property>
+             <property name="rightMargin">
+              <number>100</number>
+             </property>
+             <property name="bottomMargin">
+              <number>100</number>
+             </property>
+             <item>
+              <widget class="ProfileCardWidget" name="conInfo" native="true"/>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ProfileCardWidget</class>
+   <extends>QWidget</extends>
+   <header>profilecardwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MessageTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>messagetextedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
